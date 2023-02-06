@@ -1,0 +1,82 @@
+.container {
+  background-image: url("https://ceblog.s3.amazonaws.com/wp-content/uploads/2017/09/19114623/forms.png");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: inherit;
+  background-size: auto;
+  padding: 43%;
+  position: relative;
+}
+* {
+  box-sizing: border-box;
+}
+.formcontainer {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  margin: 0px 20%;
+  padding: 3%;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 50%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+  background-color: red;
+}
+
+label {
+  background-color: transparent !important;
+  color: cornsilk;
+  padding: 1%;
+}
+.form-group .form-group1,
+.form-group .form-group2,
+h3,
+#dateOfBirth,
+#skills,.select,
+#highestDegree,
+#stream {
+  width: 40%;
+  padding: 3%;
+}
+.form-group .form-group1 {
+  float: left;
+  margin-left: 10%;
+}
+.form-group .form-group2 {
+  float: right;
+  margin-right: 5%;
+}
+header {
+  margin-top: 20px;
+  text-align: center;
+}
+::ng-deep .mat-select{
+  background-color: whitesmoke ;
+  width: 100%;
+
+}
+
+#skills,mat-select,
+#highestDegree,
+#stream,
+#dateOfBirth,
+#certifications {
+  width: 100%;
+  height: 100%;
+  margin: 5%;
+  background-color: whitesmoke;
+}
+h3 {
+  color: antiquewhite;
+  margin-left: 5%;
+}
+button {
+  margin: 5% 48%;
+}

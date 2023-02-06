@@ -1,0 +1,89 @@
+<div class="paneContainer">
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="firstName">
+           <th mat-header-cell  *matHeaderCellDef>FirstName</th>
+           <td  mat-cell *matCellDef="let element">{{element.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+         <th mat-header-cell  *matHeaderCellDef>LastName</th>
+          <td mat-cell *matCellDef="let element"> {{element.lastName}}  
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+         <th mat-header-cell  *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let element"> {{element.email}}  
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="mobileNumber">
+         <th mat-header-cell  *matHeaderCellDef>MobileNumber</th>
+          <td mat-cell *matCellDef="let element"> {{element.mobileNumber}}  
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="overalExperience">
+         <th mat-header-cell  *matHeaderCellDef>Overallexperience</th>
+          <td mat-cell *matCellDef="let element"> {{element.overalExperience}}  
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="relaventExperience">
+         <th mat-header-cell  *matHeaderCellDef>RelaventExperience</th>
+          <td mat-cell *matCellDef="let element"> {{element.relaventExperience}}  
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="skills">
+         <th mat-header-cell  *matHeaderCellDef>Skills</th>
+          <td mat-cell *matCellDef="let element"> {{element.skills}}  
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="dateOfBirth">
+         <th mat-header-cell  *matHeaderCellDef>dateOfBirth </th>
+          <td mat-cell *matCellDef="let element"> {{element.dateOfBirth}} </td>
+        </ng-container>
+        <ng-container matColumnDef="stream">
+         <th mat-header-cell  *matHeaderCellDef>Stream</th>
+          <td mat-cell *matCellDef="let element"> {{element.stream}}  
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="highestDegree">
+         <th mat-header-cell  *matHeaderCellDef>HighestDegree</th>
+          <td mat-cell *matCellDef="let element"> {{element.highestDegree}}  
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="nameOfCollege">
+         <th mat-header-cell  *matHeaderCellDef>NameOfCollege</th>
+          <td mat-cell *matCellDef="let element"> {{element.nameOfCollege}}  
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="percentage">
+         <th mat-header-cell  *matHeaderCellDef>Percentage</th>
+          <td mat-cell *matCellDef="let element"> {{element.percentage}}  
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="adarNumber">
+         <th mat-header-cell  *matHeaderCellDef>AdarNumber</th>
+          <td mat-cell *matCellDef="let element"> {{element.adarNumber}}  
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="certificates">
+         <th mat-header-cell  *matHeaderCellDef>Certificates</th>
+          <td mat-cell *matCellDef="let element"> {{element.certificates}}  
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="cloudExperience">
+         <th mat-header-cell  *matHeaderCellDef>cloudExperience</th>
+          <td mat-cell *matCellDef="let element"> {{element.cloudExperience}}  
+          </td>
+        </ng-container>
+        
+
+        <tr mat-header-row  *matHeaderRowDef="columnDefs"></tr>
+          <tr mat-row *matRowDef="let row; columns:columnDefs;">
+          </tr>
+
+      </table>
+   </div>
+</div>
