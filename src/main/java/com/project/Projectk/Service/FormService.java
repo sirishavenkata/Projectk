@@ -36,30 +36,20 @@ public class FormService {
 	@Autowired
 	private formskillrepository fsrepo;
 	
-	public FormModel createuserform( FormModel model) {
-		
-		   FormModel modelform=formrepo.save(model);
-		   Set<FormskillEntity> fsskills=new HashSet<FormskillEntity>();
-		  for(FormskillEntity fe:model.getSkills()) {
-			  fsskills.add(fe);
-		  }
-		    createComment(model,fsskills);
-		   return  modelform;
+	public ResponseEntity<FormModel> createuserform( FormModel model) {
+		     model=formrepo.save(model);
+		     
+		    for( FormskillEntity skillname: model.getSkills()) {
+		    	skillname.setFormmodel(model);
+		    	fsrepo.save(skillname);
+		    }
+		    
+		    
+		   
+		   return  ResponseEntity.ok(model);
 	}
 	
-	public FormskillEntity createComment(FormModel model,Set<FormskillEntity> setskill) {
-	
-		FormskillEntity fe=new FormskillEntity();
-		fe.setSelectedskill(setskill);
-		fe.setFormmodel(model);
-		
-		return fe;
-		
-		
-		
-		         
-	}
-	
+
 	public List<SkillsModel> getskills() {
 		List<SkillsModel> getskills=new ArrayList<>();
 		

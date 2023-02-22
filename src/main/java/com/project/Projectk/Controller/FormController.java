@@ -38,8 +38,8 @@ public class FormController {
 	}
 	
 	@PostMapping(value="/saveuser")
-	public FormModel createUser(@RequestBody FormModel model){
-		     FormModel modelform=service.createuserform(model);
+	public ResponseEntity<FormModel> createUser(@RequestBody FormModel model){
+		     ResponseEntity<FormModel> modelform=service.createuserform(model);
 			return modelform;
 		     
 		

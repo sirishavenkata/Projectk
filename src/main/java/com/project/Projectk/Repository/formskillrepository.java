@@ -11,7 +11,7 @@ import com.project.Projectk.Entity.FormskillEntity;
 import com.project.Projectk.Entity.SkillsModel;
 
 @Repository
-public interface formskillrepository  extends JpaRepository<FormskillEntity, Integer>{
+public interface formskillrepository  extends JpaRepository<FormskillEntity, Long>{
 	
 	
 

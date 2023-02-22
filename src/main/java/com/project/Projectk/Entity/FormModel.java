@@ -23,8 +23,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -51,15 +53,15 @@ public class FormModel  {
 	private String nameOfCollege;
 	private String certificates;
 	
-	@OneToMany(mappedBy = "formmodel")
-	private Set<FormskillEntity> skills;
+	@OneToMany(mappedBy = "formmodel",cascade= CascadeType.ALL ,orphanRemoval = true)
+	private List<FormskillEntity> skills= new ArrayList<>();
 
 	public FormModel() {}
 	
-	
+	@JsonCreator
 	public FormModel(Long formid, String firstName, String lastName, String email, long mobileNumber,
 			int overalExperience, int relaventExperience, Date dateOfBirth, String adarNumber, String nameOfCollege,
-			String certificates, Set<FormskillEntity> skills) {
+			String certificates, @JsonProperty("skills")List<FormskillEntity> skills) {
 		super();
 		this.formid = formid;
 		this.firstName = firstName;
@@ -163,11 +165,11 @@ public class FormModel  {
 		this.certificates = certificates;
 	}
 
-	public Set<FormskillEntity> getSkills() {
+	public List<FormskillEntity> getSkills() {
 		return skills;
 	}
 
-	public void setSkills(Set<FormskillEntity> skills) {
+	public void setSkills(List<FormskillEntity> skills) {
 		this.skills = skills;
 	}
 

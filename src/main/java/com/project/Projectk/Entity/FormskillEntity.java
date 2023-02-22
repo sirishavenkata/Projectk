@@ -16,44 +16,52 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class FormskillEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-	@Column
-	@ElementCollection(targetClass=String.class)
-	private Set<FormskillEntity> selectedskillname;
+	private Long id;
+
+	private String selectedskillname;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "formid", nullable = false)
-	@OnDelete(action = OnDeleteAction.CASCADE)
+	@ManyToOne
+	@JoinColumn(name="formid")
 	private FormModel formmodel;
-	public FormskillEntity() {};
 	
+	
+	
+
 	public FormModel getFormmodel() {
 		return formmodel;
 	}
-
 	public void setFormmodel(FormModel formmodel) {
 		this.formmodel = formmodel;
 	}
-
-	public FormskillEntity(int id, Set<FormskillEntity> selectedskill) {
+	public FormskillEntity(Long id, String selectedskill) {
 		super();
 		this.id = id;
 		this.selectedskillname = selectedskill;
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public Set<FormskillEntity> getSelectedskill() {
+	@JsonCreator
+	public FormskillEntity(Long id, String selectedskillname,@JsonProperty() FormModel formmodel) {
+		super();
+		this.id = id;
+		this.selectedskillname = selectedskillname;
+		this.formmodel = formmodel;
+	}
+	public String getSelectedskill() {
 		return selectedskillname;
 	}
-	public void setSelectedskill(Set<FormskillEntity> set) {
+	public void setSelectedskill(String set) {
 		this.selectedskillname = set;
 	}
 	
